@@ -1,0 +1,20 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.securewithcertservice.soap.shah.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://service.securewithcertservice.soap.shah.com/" name="CalculatorServiceImplService" targetNamespace="http://impl.service.securewithcertservice.soap.shah.com/">
+  <wsdl:import location="http://localhost:8080/secure/calculatorservice?wsdl=CalculatorService.wsdl" namespace="http://service.securewithcertservice.soap.shah.com/"> </wsdl:import>
+  <wsdl:binding name="CalculatorServiceImplServiceSoapBinding" type="ns1:CalculatorService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sum">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sum">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sumResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculatorServiceImplService">
+    <wsdl:port binding="tns:CalculatorServiceImplServiceSoapBinding" name="CalculatorServiceImplPort">
+      <soap:address location="http://localhost:8080/secure/calculatorservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
